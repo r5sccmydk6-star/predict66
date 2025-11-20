@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Prediction Result</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        h1, h2 { text-align: center; }
+        .stock-container { margin-bottom: 50px; border-bottom: 1px solid #ccc; padding-bottom: 20px; }
+        p { font-size: 16px; }
+        a { display: inline-block; margin: 20px auto; text-decoration: none; color: white; background: #007BFF; padding: 10px 20px; border-radius: 5px; }
+        a:hover { background: #0056b3; }
+    </style>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Stock Prediction Results for {{ username }}</h1>
+
+    {% for result in results %}
+        <div class="stock-container">
+            <h2>{{ result.stock }}</h2>
+            {% if result.error %}
+                <p style="color:red;">{{ result.error }}</p>
+            {% else %}
+                <p><strong>Open:</strong> ${{ result.last_open }}</p>
+                <p><strong>High:</strong> ${{ result.last_high }}</p>
+                <p><strong>Low:</strong> ${{ result.last_low }}</p>
+                <p><strong>Close:</strong> ${{ result.last_close }}</p>
+                <p><strong>Predicted Next Day Close:</strong> ${{ result.predicted_close }}</p>
+                {{ result.chart_html | safe }}
+            {% endif %}
+        </div>
+    {% endfor %}
+
+    <a href="/">Go Back</a>
+</body>
+</html>

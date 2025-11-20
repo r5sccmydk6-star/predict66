@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background-color: #0E1117;
+  color: #E0E0E0;
+}
+
+header {
+  background-color: #111;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+}
+
+h1, h2 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+main {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.chart-container {
+  background: #161B22;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+.forecast-table {
+  background: #161B22;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #333;
+  text-align: center;
+}
+
+th {
+  background-color: #20232A;
+  font-weight: bold;
+}
+
+tr:hover {
+  background-color: #252A32;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+  font-size: 0.9em;
+  color: #777;
+}

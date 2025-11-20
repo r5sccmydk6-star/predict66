@@ -1,0 +1,76 @@
+<input type="text" id="searchInput" placeholder="Search company..." autocomplete="off">
+<div id="suggestions" class="suggestions"></div>
+
+<script>
+    // Example company list (You can replace with full list of NSE/BSE companies)
+    const companies = [
+        "Aadhar Housing Finance Ltd",
+        "Aarti Industries Ltd",
+        "AAVAS Financiers Ltd",
+        "Aarti Pharmalabs Ltd",
+        "Aarti Drugs Ltd",
+        "Aarti Surfactants Ltd",
+        "Abbott India Ltd",
+        "Adani Enterprises Ltd",
+        "Adani Green Energy Ltd",
+        "Adani Ports & SEZ Ltd",
+        "Asian Paints Ltd",
+        "Axis Bank Ltd"
+    ];
+
+    const input = document.getElementById("searchInput");
+    const suggestionBox = document.getElementById("suggestions");
+
+    input.addEventListener("input", function () {
+        const value = this.value.toLowerCase();
+        suggestionBox.innerHTML = "";
+
+        if (value.length === 0) return;
+
+        const filtered = companies.filter(c => c.toLowerCase().startsWith(value));
+
+        filtered.forEach(company => {
+            const div = document.createElement("div");
+            div.classList.add("suggestion-item");
+            div.textContent = company;
+            div.onclick = () => {
+                input.value = company;
+                suggestionBox.innerHTML = "";
+            };
+            suggestionBox.appendChild(div);
+        });
+    });
+</script>
+
+<style>
+    #searchInput {
+        width: 350px;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid #aaa;
+    }
+
+    .suggestions {
+        position: absolute;
+        background: #fff;
+        width: 350px;
+        max-height: 200px;
+        overflow-y: auto;
+        border-radius: 8px;
+        border: 1px solid #aaa;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin-top: 4px;
+        z-index: 1000;
+    }
+
+    .suggestion-item {
+        padding: 10px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .suggestion-item:hover {
+        background: #e6e6ff;
+    }
+</style>

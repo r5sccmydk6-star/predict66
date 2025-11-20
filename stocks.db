@@ -1,0 +1,13 @@
+import sqlite3
+import yfinance as yf
+
+tickers = ['AAPL','MSFT','GOOG','TSLA','AMZN','META','NVDA']
+conn = sqlite3.connect("stocks.db")
+
+for t in tickers:
+    data = yf.download(t, start="2015-01-01", end="2025-11-01", auto_adjust=True)
+    data[['Close']].to_sql(t, conn, if_exists='replace')
+    print(f"Saved {t}")
+
+conn.close()
+print("✅ Database ready (stocks.db)")
