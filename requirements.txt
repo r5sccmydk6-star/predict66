@@ -43,5 +43,8 @@ urllib3==2.5.0
 websockets==15.0.1
 Werkzeug==3.1.3
 yfinance==0.2.66
-gunicorn
-
+gunicorn==21.2.0
+pandas_ta==0.3.5b0
+tensorflow==2.14.0
+dash==2.15.0
+sqlalchemy==2.0.22
